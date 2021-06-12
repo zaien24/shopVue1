@@ -4,7 +4,7 @@
     <div class="container-menu-header">
       <div class="topbar">
         <div class="topbar-social">
-          <a href="#" class="topbar-social-item fa fa-facebook"></a>
+          <a href="https://facebook.com" target="_blank" class="topbar-social-item fa fa-facebook"></a>
           <a href="#" class="topbar-social-item fa fa-instagram"></a>
           <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
           <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
@@ -39,6 +39,12 @@
         <div class="wrap_menu">
           <nav class="menu">
             <ul class="main_menu">
+              <router-link :to="{name: 'home'}" tag="li" active-class="sale-noti" exact>
+                <a>Home</a>
+              </router-link>
+              <router-link :to="{name: 'shop'}" tag="li" active-class="sale-noti" exact>
+                <a>Shop</a>
+              </router-link>
               <li>
                 <a href="index.html">Home</a>
                 <ul class="sub_menu">

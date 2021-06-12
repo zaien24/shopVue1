@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <router-view />
     <footer />
   </div>
 </template>
@@ -9,8 +10,6 @@
   import Footer from  '@/components/Footer.vue';
   export default {
     mounted() {
-
-
       $.initialize();
     },
     components: {
