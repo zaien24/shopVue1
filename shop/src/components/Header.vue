@@ -85,25 +85,27 @@
             <div class="header-cart header-dropdown">
               <ul class="header-cart-wrapitem">
 
-                <li class="header-cart-item">
-                  <div class="header-cart-item-img">
-                    <img src="images/item-cart-01.jpg" alt="IMG">
-                  </div>
+                <template v-for="product in cartItems">
+                  <li class="header-cart-item">
+                    <div class="header-cart-item-img">
+                      <img :src="product.image" alt="IMG">
+                    </div>
 
-                  <div class="header-cart-item-txt">
-                    <a href="#" class="header-cart-item-name">
-                      White Shirt With Pleat Detail Back
-                    </a>
-
-                    <span class="header-cart-item-info">
-											1 x $19.00
+                    <div class="header-cart-item-txt">
+                      <router-link to="/" class="header-cart-item-name">
+                        {{ product.title }}
+                      </router-link>
+                      <span class="header-cart-item-info">
+											1 x ${{ product.price }}
 										</span>
-                  </div>
-                </li>
+                    </div>
+                  </li>
+                </template>
+
               </ul>
 
               <div class="header-cart-total">
-                Total: $75.00
+                Total: ${{ totalCartPrice }}
               </div>
 
               <div class="header-cart-buttons">
@@ -151,57 +153,27 @@
             <!-- Header cart noti -->
             <div class="header-cart header-dropdown">
               <ul class="header-cart-wrapitem">
-                <li class="header-cart-item">
-                  <div class="header-cart-item-img">
-                    <img src="images/item-cart-01.jpg" alt="IMG">
-                  </div>
+                <template v-for="product in cartItems">
+                  <li class="header-cart-item">
+                    <div class="header-cart-item-img">
+                      <img :src="product.image" alt="IMG">
+                    </div>
 
-                  <div class="header-cart-item-txt">
-                    <a href="#" class="header-cart-item-name">
-                      White Shirt With Pleat Detail Back
-                    </a>
+                    <div class="header-cart-item-txt">
+                      <router-link to="/" class="header-cart-item-name">
+                        {{ product.title }}
+                      </router-link>
 
-                    <span class="header-cart-item-info">
-											1 x $19.00
+                      <span class="header-cart-item-info">
+											1 x ${{ product.price}}
 										</span>
-                  </div>
-                </li>
-
-                <li class="header-cart-item">
-                  <div class="header-cart-item-img">
-                    <img src="images/item-cart-02.jpg" alt="IMG">
-                  </div>
-
-                  <div class="header-cart-item-txt">
-                    <a href="#" class="header-cart-item-name">
-                      Converse All Star Hi Black Canvas
-                    </a>
-
-                    <span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-                  </div>
-                </li>
-
-                <li class="header-cart-item">
-                  <div class="header-cart-item-img">
-                    <img src="images/item-cart-03.jpg" alt="IMG">
-                  </div>
-
-                  <div class="header-cart-item-txt">
-                    <a href="#" class="header-cart-item-name">
-                      Nixon Porter Leather Watch In Tan
-                    </a>
-
-                    <span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-                  </div>
-                </li>
+                    </div>
+                  </li>
+                </template>
               </ul>
 
               <div class="header-cart-total">
-                Total: $75.00
+                Total: ${{ totalCartPrice }}
               </div>
 
               <div class="header-cart-buttons">
@@ -308,12 +280,13 @@
 <script>
   import { mapState, mapGetters } from 'vuex'
   export default {
-    ...mapState('cart', {
-      cartItems: state => state.items
-    }),
-    ...mapGetters('cart', {
-      totalCartPrice: 'totalPrice'
-    })
-
+    computed: {
+      ...mapState('cart', {
+        cartItems: state => state.items
+      }),
+      ...mapGetters('cart', {
+        totalCartPrice: 'totalPrice'
+      })
+    }
   }
 </script>
