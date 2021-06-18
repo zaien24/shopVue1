@@ -1,8 +1,8 @@
 <template>
+
+
   <div class="filter-price p-t-22 p-b-50 bo3">
-    <div class="m-text15 p-b-17">
-      Price
-    </div>
+
 
     <div class="wra-filter-bar">
       <div id="filter-bar"></div>
